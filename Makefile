@@ -6,16 +6,28 @@ ENGINE_SRC = Engine/src
 SANDBOX = Sandbox
 SANDBOX_SRC = Sandbox/src
 
-bin intermediate:
-	mkdir $@
-
-all: sqEngine.dll
+all: sqEngine.dll Sandbox
 
 sqEngine.dll: intermediate/$(ENGINE)/*.o
 	g++ -shared -o bin/sqEngine.dll intermediate/$(ENGINE)/*.o
 
-intermediate/$(ENGINE)/*.o: $(ENGINE_SRC)/Test.cpp $(ENGINE_SRC)/Test.h
+intermediate/$(ENGINE)/*.o: $(ENGINE_SRC)/*.cpp $(ENGINE_SRC)/*.h
 	g++ $(CXXFLAGS) -c $(ENGINE_SRC)/Test.cpp -o intermediate/$(ENGINE)/Test.o
+
+Sandbox: intermediate/$(SANDBOX)/*.o sqEngine.dll
+	g++ -o bin/Sandbox intermediate/$(SANDBOX)/*.o -Lbin/Engine -Lbin -lsqEngine
+
+intermediate/$(SANDBOX)/*.o: $(SANDBOX_SRC)/SandboxApp.cpp
+	g++ $(CXXFLAGS) -c $(SANDBOX_SRC)/SandboxApp.cpp -o intermediate/$(SANDBOX)/SandboxApp.o
+
+bin intermediate:
+	mkdir $@
+
+# clean:
+# 	rm -rf intermediate/Engine intermediate/Sandbox bin/ bin/Engine bin/Sandbox
+
+clean:
+	rm -f ./bin/Sandbox.exe
 # # Compiler settings
 # CXX = g++
 # CXXFLAGS = -Wall -std=c++20 -O2
