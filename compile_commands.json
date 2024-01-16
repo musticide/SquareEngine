@@ -1,0 +1,17 @@
+[
+ {
+  "directory": "C:\\Users\\MustafaKhaizarHussai\\Documents\\personal\\repos\\SquareEngine",
+  "command": "g++ -Wall -std=c++20 -DSQ_PLATFORM_WINDOWS -DSQ_BUILD_DLL -c Engine/src/Application.cpp -o intermediate/Engine/Application.o",
+  "file": "Engine/src/Application.cpp"
+ },
+ {
+  "directory": "C:\\Users\\MustafaKhaizarHussai\\Documents\\personal\\repos\\SquareEngine",
+  "command": "g++ -Wall -std=c++20 -DSQ_PLATFORM_WINDOWS -DSQ_BUILD_DLL -c Engine/src/Test.cpp -o intermediate/Engine/Test.o",
+  "file": "Engine/src/Test.cpp"
+ },
+ {
+  "directory": "C:\\Users\\MustafaKhaizarHussai\\Documents\\personal\\repos\\SquareEngine",
+  "command": "g++ -Wall -std=c++20 -DSQ_PLATFORM_WINDOWS -c Sandbox/src/SandboxApp.cpp -o intermediate/Sandbox/SandboxApp.o",
+  "file": "Sandbox/src/SandboxApp.cpp"
+ }
+]

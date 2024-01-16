@@ -3,4 +3,4 @@
 
 namespace SqEngine {
 void HelloEngine() { printf("Hello Squares\n"); }
-} // namespace SqEngine
+}
