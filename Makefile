@@ -20,6 +20,7 @@ SANDBOX_SRC_DIR = Sandbox/src
 SANDBOX_OBJ_DIR = intermediate/Sandbox
 SANDBOX_SRCS = $(wildcard $(SANDBOX_SRC_DIR)/*.cpp)
 SANDBOX_OBJS = $(SANDBOX_SRCS:$(SANDBOX_SRC_DIR)/%.cpp=$(SANDBOX_OBJ_DIR)/%.o)
+SANDBOX_INCLUDE = -I$(ENGINE_SRC_DIR)
 
 all: sqEngine.dll Sandbox
 
@@ -42,4 +43,4 @@ Sandbox:$(SANDBOX_OBJS) sqEngine.dll
 
 #Generate Sandbox Objs
 $(SANDBOX_OBJ_DIR)/%.o: $(SANDBOX_SRC_DIR)/%.cpp
-	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -c $< -o $@
+	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -c $< -o $@ -IEngine/src

@@ -1,7 +1,11 @@
-namespace SqEngine {
-    __declspec(dllimport) void HelloEngine();
-}
+#include <SqEngine.h>
 
-int main(){
-    SqEngine::HelloEngine();
+class Sandbox : public SqEngine::Application {
+public:
+  Sandbox() {}
+  ~Sandbox() {}
+};
+
+SqEngine::Application *SqEngine::CreateApplication() { 
+    return new Sandbox(); 
 }

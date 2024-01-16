@@ -1,3 +1,4 @@
+#pragma once
 #include "Core.h"
 
 namespace SqEngine {
@@ -7,9 +8,8 @@ namespace SqEngine {
         virtual ~Application();
 
         void Run();
-
-    private:
-        
     };
+    
+    Application* CreateApplication();
 
 }
