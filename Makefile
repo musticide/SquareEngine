@@ -35,7 +35,7 @@ sqEngine.dll: $(ENGINE_OBJS)
 
 #Generate Engine Objs
 $(ENGINE_OBJ_DIR)/%.o: $(ENGINE_SRC_DIR)/%.cpp $(ENGINE_SRC_DIR)/%.h
-	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -DSQ_BUILD_DLL -c $< -o $@
+	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -DSQ_BUILD_DLL -c $< -o $@ -IEngine/vendor/spdlog/include
 
 #Generate Sandbox.exe
 Sandbox:$(SANDBOX_OBJS) sqEngine.dll
@@ -43,4 +43,4 @@ Sandbox:$(SANDBOX_OBJS) sqEngine.dll
 
 #Generate Sandbox Objs
 $(SANDBOX_OBJ_DIR)/%.o: $(SANDBOX_SRC_DIR)/%.cpp
-	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -c $< -o $@ -IEngine/src
+	g++ $(CXXFLAGS) -DSQ_PLATFORM_WINDOWS -c $< -o $@ -IEngine/src -IEngine/vendor/spdlog/include
