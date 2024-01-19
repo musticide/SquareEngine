@@ -25,9 +25,12 @@ SANDBOX_INCLUDE = -I$(ENGINE_SRC_DIR)
 all: sqEngine.dll Sandbox
 
 #Generate directories TO BE DONE
-targetDirectories:
-	mkdir -p $(BINARIES)
-	mkdir -p $(ENGINE_INTERMEDIATE)
+targetDirs:
+	@pwsh -NoProfile -Command "New-Item -Path $(BINARIES) -ItemType Directory -Force | Out-Null"
+	@pwsh -NoProfile -Command "New-Item -Path $(ENGINE_INTERMEDIATE) -ItemType Directory -Force | Out-Null"
+	@pwsh -NoProfile -Command "New-Item -Path $(SANDBOX_INTERMEDIATE) -ItemType Directory -Force | Out-Null"
+	@pwsh -NoProfile -Command "New-Item -Path $(SANDBOX_BINARIES) -ItemType Directory -Force | Out-Null" 
+	@pwsh -NoProfile -Command "New-Item -Path $(ENGINE_BINARIES) -ItemType Directory -Force | Out-Null"
 
 #Generate sqEngine.dll
 sqEngine.dll: $(ENGINE_OBJS) 
